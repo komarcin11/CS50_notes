@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Background change</title>
+    </head>
+    <body>
+        <button id="red">RED</button>
+        <br></br>
+        <button id="green">GREEN</button>
+        <br></br>
+        <button id="blue">BLUE</button>
+        <script>
+// here a JS script changinge the backgound colour after the button click
+            let body = document.querySelector('body');
+            document.querySelector('#red').addEventListener('click',function(){
+                body.style.backgroundColor = 'red';
+            })
+            document.querySelector('#green').addEventListener('click',function(){
+                body.style.backgroundColor = 'green';
+            })
+            document.querySelector('#blue').addEventListener('click',function(){
+                body.style.backgroundColor = 'blue';
+            })
+
+        </script>
+    </body>
+</html>

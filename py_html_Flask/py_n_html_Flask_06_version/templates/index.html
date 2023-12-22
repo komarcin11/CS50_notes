@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+<!-- layout.html is a parent file -->
+{% block body%}
+
+    <form action = "/" method = "post"> <!-- the "post" will not show the extended url adres-->
+        <input autocomplete ="off" name="name" placeholder="Name" type = "text">
+        <button type = "submit">Greet</button>
+    </form>
+
+{% endblock %}

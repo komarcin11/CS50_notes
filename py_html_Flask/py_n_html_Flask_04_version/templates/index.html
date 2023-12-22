@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+<!-- layout.html is a parent file -->
+{% block body%}
+
+    <form action = "/greet" method = "get">
+        <input autocomplete ="off" _name="name" placeholder="Name" type = "text">
+        <button type = "submit">Greet</button>
+    </form>
+
+{% endblock %}

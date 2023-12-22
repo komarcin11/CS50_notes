@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- here you can insert a js script -->
+        <script>
+            
+            document.addEventListener('DOMContentLoaded', function(){
+                document.querySelector('form').addEventListener('submit', function(event){
+                let name = document.querySelector('#name').value;
+                alert('hello, '+name);
+                event.preventDefault();
+                });
+            })
+        </script>
+        <title>
+            html with js
+        </title>
+    </head>
+    <body>
+        <form>
+            <input autocomplete="off" autofocus id="name" placeholder="your name" type="text">
+            <button type="submit">Greet</button>
+    </body>
+</html>

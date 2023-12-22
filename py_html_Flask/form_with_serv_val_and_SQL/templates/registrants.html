@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1> Registrans </h1>
+    <!-- creating a table schema to fill wit data from the form.db with use of python ginga code -->
+    <form action="/" method="get">
+        <button typ="submit">Back to Registry</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Sports</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registrant in registrants %}
+                <tr>
+                    <!-- here register[name]=registrant.name -->
+                    <td>{{ registrant.name }}</td> 
+                    <td>{{ registrant.sport }} </td>
+                    <td>
+                        <form action = "/deregister" method = "post">
+                            <input name="id" type="hidden" value = "{{ registrant.id }}">
+                            <input type="submit" value = "Deregistrant">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

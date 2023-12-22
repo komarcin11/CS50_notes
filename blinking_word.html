@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+// changing visulalisation from visable to unvisable
+             function blink()
+             {
+                let body = document.querySelector('body');
+                if (body.style.visibility == "hidden")
+                {
+                    body.style.visibility = 'visible';
+                }
+                else
+                {
+                    body.style.visibility = 'hidden';
+                }
+             }
+            //speed of blinking in ms
+            window.setInterval(blink, 100);
+
+        </script>
+        <title>blinking word</title>
+    </head>
+    <body>
+        Hi, there
+        <br>
+        im Tom
+
+    </body>
+</html>s

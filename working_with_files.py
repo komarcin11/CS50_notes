@@ -76,12 +76,13 @@ with open("phonebook.csv", "a" ,newline='') as file: # open a file in append mod
     write = csv.DictWriter(file, fieldnames=["name", "number"]) #here you create a dictionary writer insted of list
     write.writerow({"name":name, "number": number}) # here you assign values to the dictionary values
 
-
+#________________________________
 #favorites.csv
+#
 import csv
 with open("favorites.csv", "r") as file:
     print(f"file:{file}")
-    reader = csv.reader(file)
+    reader = csv.reader(file) #here we create a list of the individual lies/rows
     count = 0
     for row in reader:
         if len(row)>=3: #so if there is no value in the third element in the row 
@@ -89,3 +90,80 @@ with open("favorites.csv", "r") as file:
             # print(f"{count}: ", end ="")
             favorite = row[2]
             print(favorite)
+
+#small improvement adding a counter
+import csv
+with open("favorites.csv", "r") as file:
+    reader = csv.DictReader(file)
+    count = 0
+    Python, Java, c = 0,0,0 # declering a counter variables
+    for row in reader:
+        if len(row)>=3: #so if there is no value in the third element in the row 
+            count += 1
+            # print(f"{count}: ", end ="")
+            favorite = row["Programming Language"]
+            if favorite == "Python": ##very primitive way of counting 
+                Python +=1 
+            elif favorite == "C":
+                c +=1
+            elif favorite == "Java":
+                Java +=1
+print(f"Java: {Java}")
+print(f"Python: {Python}")
+print(f"C: {c}")
+
+#a big improvement making it universla to work
+import csv
+with open("favorites.csv", "r") as file:
+    reader = csv.DictReader(file)
+    count = {}
+    
+    for row in reader:
+        
+        if len(row)>=3: #so if there is no value in the third element in the row 
+            favorite = row["Programming Language"]
+            if favorite in count:
+                count[favorite] += 1
+            else:
+                count[favorite] = 1
+            
+        else:
+            print(f"row len: {len(row)}")
+            print(f"{row}")
+
+for f in count: # iterate thru the count dict
+    if count[f]>1:
+        print(f"{f}: {count[f]}")
+
+#modifing the counter so it will show from the bigest values of dict
+import csv
+with open("favorites.csv", "r") as file:
+    reader = csv.DictReader(file)
+    count = {}
+    
+    for row in reader:
+        
+        if len(row)>=3: #so if there is no value in the third element in the row 
+            favorite = row["Programming Language"]
+            if favorite in count:
+                count[favorite] += 1
+            else:
+                count[favorite] = 1
+            
+        else:
+            print(f"row len: {len(row)}")
+            print(f"{row}")
+
+ordered= dict(sorted(count.items(), reverse= True, key= lambda x:x[1])) ## this is the way to sortd by the values not keys
+for f in ordered: # iterate thru the count dict
+    if ordered[f]>1:
+        print(f"{f}: {ordered[f]}")
+# print(dict(sorted(count.items(), key= lambda x:x[1]), reverse=True))
+
+
+
+
+
+
+
+
